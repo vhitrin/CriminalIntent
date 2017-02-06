@@ -1,8 +1,11 @@
 package ru.vhitrin.android.criminalintent;
 
-/**
- * Created by Vlad on 05-Feb-17.
- */
+import android.support.v4.app.Fragment;
 
-public class CrimeListActivity {
+public class CrimeListActivity extends SingleFragmentActivity{
+
+    @Override
+    protected Fragment createFragment(){
+        return new CrimeListFragment();
+    }
 }
