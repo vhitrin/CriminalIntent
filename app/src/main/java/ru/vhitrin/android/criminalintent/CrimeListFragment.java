@@ -12,7 +12,9 @@ import android.widget.CheckBox;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
+import java.util.Locale;
 
 public class CrimeListFragment extends Fragment {
 
@@ -68,14 +70,14 @@ public class CrimeListFragment extends Fragment {
         public void bindCrime(Crime crime) {
             mCrime = crime;
             mTitleTextView.setText(crime.getTitle());
-            mDateTextView.setText(crime.getDate().toString());
+            mDateTextView.setText(new SimpleDateFormat("EEEE, MMMM dd, yyyy", new Locale("en")).format(crime.getDate()));
             mSolvedCheckBox.setChecked(crime.isSolved());
         }
 
         @Override
         public void onClick(View v) {
             currentPosition = mCrimeRecyclerView.getChildAdapterPosition(v);
-            Intent intent = CrimeActivity.newIntent(getActivity(), mCrime.getId());
+            Intent intent = CrimePagerActivity.newIntent(getActivity(), mCrime.getId());
             startActivity(intent);
         }
     }
