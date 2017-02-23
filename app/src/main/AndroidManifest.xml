@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="ru.vhitrin.android.criminalintent">
+    
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
+                     android:maxSdkVersion="18"></uses-permission>
+
+    <uses-feature android:name="android.hardware.Camera2"
+                  android:required="false"></uses-feature>
 
     <application
         android:allowBackup="true"
